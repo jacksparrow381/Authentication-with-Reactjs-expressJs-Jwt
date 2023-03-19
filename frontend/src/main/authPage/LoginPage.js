@@ -59,9 +59,8 @@ const LoginPage = () => {
             { withCredentials: true }
           );
 
-          console.log(response);
-
           if (response.status === 200) {
+            localStorage.setItem("user-token", true);
             navigate("/jwt");
           }
         }}
