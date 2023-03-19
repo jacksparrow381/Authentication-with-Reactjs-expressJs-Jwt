@@ -5,6 +5,7 @@ import SignUp from "./main/authPage/SignUp";
 import LoginPage from "./main/authPage/LoginPage";
 import JwtShow from "./main/Advertisement/JwtShow";
 import SuccessSignUp from "./main/Advertisement/SuccessSignUp";
+import ProtectedRoutes from "./main/protectedRoutes/ProtectedRoutes";
 
 export default function App() {
   return (
@@ -12,7 +13,14 @@ export default function App() {
       <Route path="/" element={<SignUp />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/success" element={<SuccessSignUp />} />
-      <Route path="/jwt" element={<JwtShow />} />
+      <Route
+        path="/jwt"
+        element={
+          <ProtectedRoutes>
+            <JwtShow />
+          </ProtectedRoutes>
+        }
+      />
     </Routes>
   );
 }
