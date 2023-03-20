@@ -21,7 +21,6 @@ export default function JwtShow() {
     const response = await axios.post("http://localhost:5000/api/auth/logout");
 
     if (response.status === 200) {
-      console.log("Logout");
       localStorage.removeItem("token");
       navigate("/");
     }

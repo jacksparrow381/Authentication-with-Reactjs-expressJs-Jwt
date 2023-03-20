@@ -61,7 +61,6 @@ const LoginPage = () => {
 
           if (response.status === 200) {
             localStorage.setItem("user-token", true);
-            console.log(response.data);
             localStorage.setItem("user-name", response.data);
             navigate("/jwt");
           }
