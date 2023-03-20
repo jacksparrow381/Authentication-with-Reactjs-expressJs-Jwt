@@ -41,11 +41,16 @@ router.post("/login", async (req, res) => {
     const token = jwt.sign({ id: user._id }, process.env.TOKEN_SECRET);
     if (token) {
       res.cookie("token", token, { httpOnly: true });
-      res.send(user);
+      res.send(user.name);
     }
   } catch (error) {
     res.json(error);
   }
+});
+
+router.post("/logout", (req, res) => {
+  res.clearCookie("token");
+  res.send("Logout");
 });
 
 module.exports = router;
